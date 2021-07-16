@@ -3,6 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserReg {
+	
 	//Check First Name
 	
 	public static boolean isFirstName(String firstname) {
@@ -37,6 +38,18 @@ public class UserReg {
 			return false;
 		}
 		Matcher match = patt.matcher(email);
+		return match.matches();
+	}
+	
+	//Check Mobile Format
+	
+	public static boolean isMobileNo(String mobile) {
+		String regex = "^[0-9]{2}\\s{0,1}[0-9]{10}$";
+		Pattern patt = Pattern.compile(regex);
+		if (mobile == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(mobile);
 		return match.matches();
 	}
 

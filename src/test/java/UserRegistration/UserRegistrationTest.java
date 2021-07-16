@@ -17,40 +17,40 @@ public class UserRegistrationTest {
 	@Test
 	public void givenName_WhenFirstNameCaptial_ShouldReturn() {
 
-		boolean actual = userReg.isFirstName("Meenakshi");
+		boolean actual = UserReg.isFirstName("Meenakshi");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
 	public void givenName_WhenFirstName_FirstCharacter_IsInLowerCase() {
 
-		boolean actual = userReg.isFirstName("meenakshi");
+		boolean actual = UserReg.isFirstName("meenakshi");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_WhenFirstName_SpecialCharacter_IsThere_OrNot() {
 
-		boolean actual = userReg.isFirstName("Meenakshi@");
+		boolean actual = UserReg.isFirstName("Meenakshi@");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_WhenFirstName_HaveNumbers() {
 
-		boolean actual = userReg.isFirstName("Meenakshi123");
+		boolean actual = UserReg.isFirstName("Meenakshi123");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_whenFirstName_Havespace() {
-		boolean actual = userReg.isFirstName("Meen  akshi");
+		boolean actual = UserReg.isFirstName("Meen  akshi");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_whenFirstName_givenspace_haveNumber() {
-		boolean actual = userReg.isFirstName("Meenakshi 123");
+		boolean actual = UserReg.isFirstName("Meenakshi 123");
 		Assert.assertFalse(actual);
 
 	}
@@ -60,39 +60,39 @@ public class UserRegistrationTest {
 	@Test
 	public void givenName_WhenLastNameCaptial_ShouldReturn() {
 
-		boolean actual = userReg.isLastName("Budarkar");
+		boolean actual = UserReg.isLastName("Budarkar");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
 	public void givenName_WhenLastName_FirstCharacter_IsInLowerCase() {
 
-		boolean actual = userReg.isLastName("budarkar");
+		boolean actual = UserReg.isLastName("budarkar");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_WhenLastName_SpecialCharacter_IsThere_OrNot() {
 
-		boolean actual = userReg.isLastName("Budarkar@");
+		boolean actual = UserReg.isLastName("Budarkar@");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_WhenLastName_HaveNumbers() {
 
-		boolean actual = userReg.isLastName("Budarkar123");
+		boolean actual = UserReg.isLastName("Budarkar123");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenName_whenLastName_Havespace() {
-		boolean actual = userReg.isFirstName("Budarkar@##$5 ");
+		boolean actual = UserReg.isFirstName("Budarkar@##$5 ");
 		Assert.assertFalse(actual);
 
 }
 	public void givenName_whenLastName_givenspace_haveNumber() {
-		boolean actual = userReg.isFirstName("Budarkar 123");
+		boolean actual = UserReg.isFirstName("Budarkar 123");
 		Assert.assertFalse(actual);
 	}
 	//Check Email 
@@ -100,24 +100,53 @@ public class UserRegistrationTest {
 			@Test
 			public void givenEmail_WhenEmail_is_Valid_ShouldReturn() {
 
-				boolean actual = userReg.isEmail("meenakshi.budar@gamil.com.in");
+				boolean actual = UserReg.isEmail("meenakshi.budar@gamil.com.in");
 				Assert.assertTrue(actual);
 			}
 
 			@Test
 			public void givenEmail_WhenEmail_does_not_contain_Special_char_ShouldReturn() {
 
-				boolean actual = userReg.isEmail("meenaks!hibudar@gmail.com.in");
+				boolean actual = UserReg.isEmail("meenaks!hibudar@gmail.com.in");
 				Assert.assertFalse(actual);
 			}
 
 			@Test
 			public void givenEmail_WhenEmail_Should_not_End_with_Number_ShouldReturn() {
 
-				boolean actual = userReg.isEmail("meenakshi.budar@gmail.com.in12");
+				boolean actual = UserReg.isEmail("meenakshi.budar@gmail.com.in12");
+				Assert.assertFalse(actual);
+			}
+			//Check Mobile Format
+			
+			@Test
+			public void givenmobileNo_WhenMobileNo_is_Valid_ShouldReturn() {
+
+				boolean actual = UserReg.isMobileNo("91 7005803672");
+				Assert.assertTrue(actual);
+
+
+			}
+			@Test
+			public void givenmobileNo_WhenMobileNo_contain_char_ShouldReturn() {
+
+				boolean actual = UserReg.isMobileNo("91 700580367a");
+				Assert.assertFalse(actual);
+			}
+			
+			@Test
+			public void givenmobileNo_WhenMobileNo_contain_more_then_one_space_ShouldReturn() {
+
+				boolean actual = UserReg.isMobileNo("91  7005803672");
+				Assert.assertFalse(actual);
+			}
+			
+			@Test
+			public void givenmobileNo_WhenMobileNo_Contain_More_Then_Ten_Digit_ShouldReturn() {
+
+				boolean actual = UserReg.isMobileNo("91 700580367233");
 				Assert.assertFalse(actual);
 			}
 
 
-	
 }
