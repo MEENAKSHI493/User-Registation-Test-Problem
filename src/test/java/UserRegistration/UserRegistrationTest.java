@@ -152,33 +152,34 @@ public class UserRegistrationTest {
 		boolean actual = UserReg.isMobileNo("91 700580367233");
 		Assert.assertFalse(actual);
 	}
+	
 	// Check Password
 
 	@Test
 	public void givenpassword_WhenPassword_is_Valid_ShouldReturn() {
 
-		boolean actual = userReg.isPassword("abcdefgh");
+		boolean actual = UserReg.isPassword("abcdefgh");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_is_Less_then_8_char_ShouldReturn() {
 
-		boolean actual = userReg.isPassword("abcdefg");
+		boolean actual = UserReg.isPassword("abcdefg");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_contain_number_char_ShouldReturn() {
 
-		boolean actual = userReg.isPassword("abcdefgh7i");
+		boolean actual = UserReg.isPassword("abcdefgh7i");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_contain_special_char_ShouldReturn() {
 
-		boolean actual = userReg.isPassword("abcdefgh7$");
+		boolean actual = UserReg.isPassword("abcdefgh7$");
 		Assert.assertFalse(actual);
 
 	}
@@ -186,8 +187,22 @@ public class UserRegistrationTest {
 	@Test
 	public void givenpassword_WhenPassword_contain_capital_char_ShouldReturn() {
 
-		boolean actual = userReg.isPassword("abcd efgh");
+		boolean actual = UserReg.isPassword("abcd efgh");
 		Assert.assertFalse(actual);
-	}	
-		
+	}
+	
+	// Check Password Rule 2
+
+		@Test
+		public void givenpassword1_WhenPassword_is_Valid_ShouldReturn() {
+
+			boolean actual = UserReg.isPassword("Abcdefgh");
+			Assert.assertTrue(actual);
+		}
+		@Test
+		public void givenpassword1_WhenPassword1_Contain_Lower_Case_ShouldReturn() {
+
+			boolean actual = userReg.isPassword1("abcdefghi");
+			Assert.assertFalse(actual);
+		}	
 }
