@@ -97,6 +97,7 @@ public class UserReg {
 			Matcher match = patt.matcher(password3);
 			return match.matches();
 		}
+		
 
 	
 }
