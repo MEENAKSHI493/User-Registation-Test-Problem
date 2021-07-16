@@ -204,5 +204,24 @@ public class UserRegistrationTest {
 
 			boolean actual = userReg.isPassword1("abcdefghi");
 			Assert.assertFalse(actual);
-		}	
+		}
+	
+		// Check Password Rule 3
+
+				@Test
+				public void givenpassword_WhenPassword2_is_Valid_ShouldReturn() {
+
+					boolean actual = UserReg.isPassword2("Abcdefgh12");
+					Assert.assertTrue(actual);
+				}
+
+				@Test
+				public void givenpassword1_WhenPassword2_does_not_have_digit_ShouldReturn() {
+
+					boolean actual = UserReg.isPassword2("Abcdefghi");
+					Assert.assertFalse(actual);
+				}
+
+		
+		
 }

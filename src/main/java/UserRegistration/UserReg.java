@@ -74,6 +74,17 @@ public class UserReg {
 			Matcher match = patt.matcher(password1);
 			return match.matches();
 		}
+		//Check Password Rule 3
+		
+		public static boolean isPassword2(String password2) {
+			String regex = "^[A-Z]{1}+[a-zA-Z].+[0-9].+{8,}$";
+			Pattern patt = Pattern.compile(regex);
+			if (password2 == null) {
+				return false;
+			}
+			Matcher match = patt.matcher(password2);
+			return match.matches();
+		}
 
 	
 }
