@@ -3,7 +3,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserReg {
-	
 	//Check First Name
 	
 	public static boolean isFirstName(String firstname) {
@@ -50,6 +49,18 @@ public class UserReg {
 			return false;
 		}
 		Matcher match = patt.matcher(mobile);
+		return match.matches();
+	}
+	
+	//Check Password
+	
+	public static boolean isPassword(String password) {
+		String regex = "^[a-zA-Z]{8,}$";
+		Pattern patt = Pattern.compile(regex);
+		if (password == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(password);
 		return match.matches();
 	}
 
