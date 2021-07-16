@@ -84,6 +84,18 @@ public class UserReg {
 			}
 			Matcher match = patt.matcher(password2);
 			return match.matches();
+		}   
+
+		//Check Password Rule 4
+		
+		public static boolean isPassword3(String password3) {
+			String regex = "^[A-Z]{1}+[a-zA-Z].*[@#$%^&*._+=].*[0-9].*{8,}$";
+			Pattern patt = Pattern.compile(regex);
+			if (password3 == null) {
+				return false;
+			}
+			Matcher match = patt.matcher(password3);
+			return match.matches();
 		}
 
 	

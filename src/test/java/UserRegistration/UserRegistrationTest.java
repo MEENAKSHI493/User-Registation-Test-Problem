@@ -221,6 +221,36 @@ public class UserRegistrationTest {
 					boolean actual = UserReg.isPassword2("Abcdefghi");
 					Assert.assertFalse(actual);
 				}
+				// Check Password Rule 4
+
+				@Test
+				public void givenpassword3_WhenPassword3_is_Valid_ShouldReturn_True() {
+
+					boolean actual = userReg.isPassword3("Abcdefgh12@12");
+					Assert.assertTrue(actual);
+				}
+
+				@Test
+				public void givenpassword3_WhenPassword3_have_Lessthen_8_digit_ShouldReturn_False() {
+
+					boolean actual = userReg.isPassword3("Abcdefg");
+					Assert.assertFalse(actual);
+				}
+				
+				@Test
+				public void givenpassword3_WhenPassword3_have_only_character_ShouldReturn_False() {
+
+					boolean actual = userReg.isPassword3("Abcdefgijkl");
+					Assert.assertFalse(actual);
+				}
+				
+				@Test
+				public void givenpassword3_WhenPassword3_dont_have_specialCharacter_ShouldReturn_False() {
+
+					boolean actual = userReg.isPassword3("Abcdefgijkl");
+					Assert.assertFalse(actual);
+				}
+
 
 		
 		
