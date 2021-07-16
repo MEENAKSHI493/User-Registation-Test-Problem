@@ -87,7 +87,7 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenName_whenLastName_Havespace() {
-		boolean actual = userReg.isFirstName("Budar kar");
+		boolean actual = userReg.isFirstName("Budarkar@##$5 ");
 		Assert.assertFalse(actual);
 
 }
@@ -95,4 +95,29 @@ public class UserRegistrationTest {
 		boolean actual = userReg.isFirstName("Budarkar 123");
 		Assert.assertFalse(actual);
 	}
+	//Check Email 
+	
+			@Test
+			public void givenEmail_WhenEmail_is_Valid_ShouldReturn() {
+
+				boolean actual = userReg.isEmail("meenakshi.budar@gamil.com.in");
+				Assert.assertTrue(actual);
+			}
+
+			@Test
+			public void givenEmail_WhenEmail_does_not_contain_Special_char_ShouldReturn() {
+
+				boolean actual = userReg.isEmail("meenaks!hibudar@gmail.com.in");
+				Assert.assertFalse(actual);
+			}
+
+			@Test
+			public void givenEmail_WhenEmail_Should_not_End_with_Number_ShouldReturn() {
+
+				boolean actual = userReg.isEmail("meenakshi.budar@gmail.com.in12");
+				Assert.assertFalse(actual);
+			}
+
+
+	
 }

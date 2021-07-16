@@ -26,5 +26,19 @@ public class UserReg {
 		Matcher match = patt.matcher(lastname);
 		return match.matches();
 	}
+	
+	
+	//Check Email
+	
+	public static boolean isEmail(String email) {
+		String regex = "^[a-zA-Z]+([.][A-Za-z]+)*@[a-zA-Z]+[.]+[a-zA-Z]{2,3}+([.][A-Za-z]+)*$";
+		Pattern patt = Pattern.compile(regex);
+		if (email == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(email);
+		return match.matches();
+	}
+
 
 }
